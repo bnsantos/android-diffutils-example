@@ -1,3 +1,38 @@
 <resources>
   <string name="app_name">DiffUtils</string>
+  <string name="random">Random</string>
+
+  <string-array name="names">
+    <item>Dilma Rousseff</item>
+    <item>Lula</item>
+    <item>Barack Obama</item>
+    <item>Donald Trump</item>
+    <item>Angela Merkel</item>
+    <item>Vladmir Putin</item>
+    <item>Mauricio Macri</item>
+    <item>Justin Trudeau</item>
+    <item>Hillary Clinton</item>
+    <item>Arnold Schwarzenegger</item>
+    <item>Margareth Thatcher</item>
+    <item>David Cameron</item>
+    <item>Fidel Castro</item>
+    <item>François Hollande</item>
+    <item>Shinzo Abe</item>
+    <item>Kim Jong-li</item>
+    <item>Hugo Chavez</item>
+    <item>Al Gore</item>
+    <item>Vladimir Lenin</item>
+    <item>Abraham Lincoln</item>
+    <item>Mikhail Gorbachev</item>
+    <item>Winston Churchill</item>
+    <item>John F. Kennedy</item>
+    <item>Indira Gandhi</item>
+    <item>Martin Luther King, Jr</item>
+    <item>Silvio Berlusconi</item>
+    <item>Jose Mujica</item>
+    <item>Napoleon Bonaparte</item>
+    <item>Fernando Henrique Cardoso</item>
+    <item>Getulio Vargas</item>
+    <item>Juscelino Kubitschek</item>
+  </string-array>
 </resources>
