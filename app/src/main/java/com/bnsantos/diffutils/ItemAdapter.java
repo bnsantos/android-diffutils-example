@@ -83,6 +83,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
     mItems.addAll(data);
   }
 
+  public List<Item> getItems() {
+    return mItems;
+  }
+
+  public void setItems(List<Item> items) {
+    mItems = items;
+  }
+
   class ItemHolder extends RecyclerView.ViewHolder{
     final SimpleDraweeView mAvatar;
     final TextView mName;

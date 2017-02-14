@@ -2,5 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item android:id="@+id/random" android:title="@string/random"/>
   <item android:id="@+id/add" android:title="@string/add"/>
+  <item android:id="@+id/addAsync" android:title="@string/addAsync"/>
   <item android:id="@+id/reset" android:title="@string/reset"/>
 </menu>

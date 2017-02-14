@@ -1,7 +1,9 @@
 package com.bnsantos.diffutils;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
       case R.id.reset:
         mAdapter.swap(getData(null));
         return true;
+      case R.id.addAsync:
+        addAsync();
       default:
         return super.onOptionsItemSelected(item);
     }
@@ -62,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
   private void addLastNameOddPos(){
     List<Item> data = getData(" Last");
     mAdapter.swap(data);
+  }
+
+  private void addAsync(){
+    new AddAsyncTask().execute();
   }
 
   private List<Item> getData(String last){
@@ -161,5 +169,25 @@ public class MainActivity extends AppCompatActivity {
       return "https://dummyimage.com/180x150/" + bg + "/" + letter + "&text=" + initials.toString();
     }
     return null;
+  }
+
+  private class AddAsyncTask extends AsyncTask<Void, Void, DiffUtil.DiffResult>{
+
+    private List<Item> mData;
+
+    @Override
+    protected DiffUtil.DiffResult doInBackground(Void... params) {
+      mData = getData(" Last");
+
+      final ItemDiffCallback cb = new ItemDiffCallback(mAdapter.getItems(), mData);
+      final DiffUtil.DiffResult result = DiffUtil.calculateDiff(cb);
+      return result;
+    }
+
+    @Override
+    protected void onPostExecute(DiffUtil.DiffResult result) {
+      result.dispatchUpdatesTo(mAdapter);
+      mAdapter.setItems(mData);
+    }
   }
 }

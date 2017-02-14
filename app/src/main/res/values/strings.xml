@@ -3,6 +3,7 @@
   <string name="random">Random</string>
   <string name="add">Add Last Name Odd pos</string>
   <string name="reset">Reset</string>
+  <string name="addAsync">Add async</string>
 
   <string-array name="names">
     <item>Dilma Rousseff</item>
