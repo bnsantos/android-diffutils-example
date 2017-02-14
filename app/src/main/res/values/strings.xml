@@ -1,6 +1,8 @@
 <resources>
   <string name="app_name">DiffUtils</string>
   <string name="random">Random</string>
+  <string name="add">Add Last Name Odd pos</string>
+  <string name="reset">Reset</string>
 
   <string-array name="names">
     <item>Dilma Rousseff</item>
@@ -34,5 +36,39 @@
     <item>Fernando Henrique Cardoso</item>
     <item>Getulio Vargas</item>
     <item>Juscelino Kubitschek</item>
+  </string-array>
+
+  <string-array name="ids">
+    <item>001</item>
+    <item>002</item>
+    <item>003</item>
+    <item>004</item>
+    <item>005</item>
+    <item>006</item>
+    <item>007</item>
+    <item>008</item>
+    <item>009</item>
+    <item>010</item>
+    <item>011</item>
+    <item>012</item>
+    <item>013</item>
+    <item>014</item>
+    <item>015</item>
+    <item>016</item>
+    <item>017</item>
+    <item>018</item>
+    <item>019</item>
+    <item>020</item>
+    <item>021</item>
+    <item>022</item>
+    <item>023</item>
+    <item>024</item>
+    <item>025</item>
+    <item>026</item>
+    <item>027</item>
+    <item>028</item>
+    <item>029</item>
+    <item>030</item>
+    <item>031</item>
   </string-array>
 </resources>
