@@ -18,6 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
   private ItemAdapter mAdapter;
+  private RecyclerView mRecyclerView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     Fresco.initialize(this);
 
-    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+    mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
     mAdapter = new ItemAdapter(getData(null), getResources().getDimensionPixelSize(R.dimen.avatar_size));
-    recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    recyclerView.setAdapter(mAdapter);
+    mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    mRecyclerView.setAdapter(mAdapter);
   }
 
   @Override
@@ -44,14 +45,27 @@ public class MainActivity extends AppCompatActivity {
       case R.id.random:
         random();
         return true;
-      case R.id.add:
+      case R.id.lastName:
         addLastNameOddPos();
         return true;
       case R.id.reset:
         mAdapter.swap(getData(null));
         return true;
-      case R.id.addAsync:
+      case R.id.lastNameAsync:
         addAsync();
+        return true;
+      case R.id.update:
+        addSingle();
+        return true;
+      case R.id.remove:
+        remove();
+        return true;
+      case R.id.clear:
+        clear();
+        return true;
+      case R.id.add:
+        add();
+        return true;
       default:
         return super.onOptionsItemSelected(item);
     }
@@ -84,6 +98,36 @@ public class MainActivity extends AppCompatActivity {
       items.add(new Item(ids[i], name, getImageUrl(ids[i], name)));
     }
     return items;
+  }
+
+  private void addSingle(){
+    List<Item> data = getData(null);
+    int index = 4;
+    Item item = data.get(index);
+    data.remove(index);
+    data.add(index, new Item(item.getId(), item.getName() + " mudou", item.getUrl()));
+    mAdapter.swap(data);
+  }
+
+  private void remove(){
+    List<Item> data = getData(null);
+    if (data.size() > 4) {
+      data.remove(4);
+    }
+    mAdapter.swap(data);
+  }
+
+  private void clear(){
+    mAdapter.swap(new ArrayList<Item>());
+  }
+
+  private void add(){
+    List<Item> data = getData(null);
+    String id = Integer.toString(data.size());
+    String name = "Added User" + System.currentTimeMillis();
+    data.add(0, new Item(id, name, getImageUrl(id, name)));
+    mAdapter.swap(data);
+    mRecyclerView.scrollToPosition(0);
   }
 
   private String getImageUrl(String id, String name){
